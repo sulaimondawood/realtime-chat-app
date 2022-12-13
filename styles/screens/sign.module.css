@@ -1,0 +1,28 @@
+.sign_in_wrp {
+  width: 400px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.2509803922);
+  -webkit-backdrop-filter: blur(52px);
+          backdrop-filter: blur(52px);
+  margin: 50px auto;
+  padding: 2rem 1.5rem;
+  border-radius: 30px;
+}
+.sign_in_wrp > .top {
+  color: var(--blue-2);
+  font-size: 24px;
+  text-align: center;
+}
+.sign_in_wrp > .form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sign_in_wrp > .form input {
+  border: none;
+  background-color: transparent;
+  height: 50px;
+  padding: 10px;
+  border-bottom: 1px solid var(--white-p);
+}/*# sourceMappingURL=sign.module.css.map */
