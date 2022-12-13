@@ -27,21 +27,13 @@ const Home: NextPage = () => {
 
       <main className={classes.sign_in_wrp}>
         <h3 className={classes.top}> RealTime Chat App</h3>
-        <h2 className={classes.title}>Sign Up</h2>
+        <h2 className={classes.title}>Sign In</h2>
         <form className={classes.form} onSubmit={handleSubmit}>
           <input type="text" placeholder="Enter your email  address" />
           <input type="password" placeholder="Enter your password" />
-          <div className="">
-            <label className={classes.file_label} htmlFor="file">
-              <img className={classes.folder} src={Folder.src} alt="" />
-              <span>Upload your image</span>
-            </label>
-            <input className={classes.file} type="file" id="file" />
-          </div>
-
           <div>
-            <span>Already have an account?</span>
-            <Link href="/login">login</Link>
+            <span>Does not have an account?</span>
+            <Link href="/">Create an account</Link>
           </div>
         </form>
       </main>

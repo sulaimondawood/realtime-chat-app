@@ -1,0 +1,41 @@
+.msg {
+  display: flex;
+  gap: 20px;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--milk);
+}
+.msg > .img {
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 50%;
+}
+.msg > .msg_contents {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.msg > .msg_contents > .msg_name {
+  font-size: 14px;
+  font-weight: 700;
+}
+.msg > .msg_contents > .msg_msg {
+  font-size: 12px;
+}
+.msg > .time_wrp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.msg > .time_wrp .dates {
+  font-size: 12px;
+}
+.msg > .time_wrp .no {
+  background-color: var(--blue-3);
+  width: 10px;
+  border-radius: 50%;
+  height: 10px;
+}/*# sourceMappingURL=recentMsg.module.css.map */

@@ -1,31 +1,71 @@
 .sign_in_wrp {
   width: 400px;
-  height: 500px;
-  //   background-color: var(--white-p);
+
   background-color: #ffffff40;
   backdrop-filter: blur(52px);
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 2rem 1.5rem;
   border-radius: 30px;
+  box-shadow: 2px 2px 10px #00000007;
 
   > .top {
     color: var(--blue-2);
     font-size: 24px;
     text-align: center;
   }
-
+  > .title {
+    margin-top: 40px;
+    font-size: 24px;
+    color: var(--blue-2);
+  }
   > .form {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
     input {
       //   display: block;
       border: none;
       background-color: transparent;
       height: 50px;
       padding: 10px;
-      border-bottom: 1px solid var(--white-p);
+
+      border-bottom: 1px solid var(--blue);
+      outline: none;
+    }
+
+    .file {
+      //   visibility: hidden;
+
+      display: none;
+    }
+    .file_label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      > .folder {
+        width: 50px;
+      }
+      > span {
+        color: var(--blue);
+        font-size: 12px;
+      }
+    }
+    > div:last-child {
+      align-self: flex-end;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+      a {
+        color: var(--blue);
+      }
+      span {
+        font-size: 14px;
+        color: var(--blue-2);
+        padding-right: 5px;
+      }
     }
   }
 }

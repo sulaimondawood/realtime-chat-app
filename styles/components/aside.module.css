@@ -1,0 +1,49 @@
+.aside .search {
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+.aside .search > input {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 0 10px;
+  outline: none;
+  background-color: var(--milk);
+}
+.aside .search > svg {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.aside .search > svg path {
+  stroke: var(--white-p);
+}
+.aside .btm .top h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 50px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+.aside .btm .top h2 span {
+  font-size: 14px;
+  background-color: rgb(252, 228, 232);
+  font-weight: 400;
+  border-radius: 30px;
+  color: palevioletred;
+  padding: 0.3em 0.7em;
+}
+.aside .btm .top .recent {
+  color: var(--deep-blue);
+  padding-top: 30px;
+  font-weight: 500;
+}
+.aside .btm .top .recent_msgs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}/*# sourceMappingURL=aside.module.css.map */

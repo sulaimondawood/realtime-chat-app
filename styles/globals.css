@@ -4,7 +4,8 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
 
-  background-color: var(--milk);
+  background-color: var(--white-p);
+  /* background-color: var(--black); */
 }
 
 * {
@@ -25,9 +26,9 @@ body {
 
   /* other */
   --white-p: #f3f4f8;
-  /* --white-p: #cbc3c4; */
+  --white-p-2: #cbc3c4;
   --blue-3: #0b22f6;
-  --white-p: #5767b0;
+  /* --white-p: #5767b0; */
   --blue-2: #2b2656;
-  /* --white-p: #b4656e; */
+  --pink: #b4656e;
 }
