@@ -1,4 +1,11 @@
 .aside {
+  padding: 30px 2rem;
+  height: 100vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .search {
     position: relative;
     width: 100%;
@@ -11,7 +18,15 @@
       border: none;
       padding: 0 10px;
       outline: none;
-      background-color: var(--milk);
+      // background-color: var(--w);
+      background-color: #ffffff50;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 5px #00000020;
+
+      &::placeholder {
+        font-size: 16px;
+        color: var(--milk);
+      }
     }
 
     > svg {
@@ -20,7 +35,7 @@
       top: 50%;
       transform: translateY(-50%);
       path {
-        stroke: var(--white-p);
+        stroke: var(--milk);
       }
     }
   }

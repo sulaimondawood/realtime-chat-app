@@ -1,3 +1,6 @@
 .main {
-  display: flex;
+  max-width: 90%;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 1fr 2fr 1fr;
 }

@@ -1,0 +1,46 @@
+.profile {
+  height: 100vh;
+  padding: 30px;
+}
+.profile .top {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.3137254902);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  align-items: center;
+  height: 80px;
+  padding: 0 1rem;
+  border-radius: 20px 20px 0 0;
+}
+.profile .top p {
+  font-size: 20px;
+}
+.profile > div:last-child {
+  margin-top: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3137254902);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 2rem;
+}
+.profile > div:last-child img {
+  width: 90%;
+  border-radius: 50%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  text-align: center;
+  padding-top: 30px;
+}
+.profile > div:last-child .name {
+  font-size: 26px;
+  padding-top: 20px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: gray;
+}
+.profile > div:last-child p {
+  color: blue;
+  padding-top: 10px;
+}/*# sourceMappingURL=profile.module.css.map */

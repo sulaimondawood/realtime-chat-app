@@ -5,7 +5,10 @@ body {
   font-family: "Poppins", sans-serif;
 
   background-color: var(--white-p);
-  /* background-color: var(--black); */
+  background-color: rgb(233, 237, 241);
+  /* background-color: #02020e; */
+  /* background-color: #1a1a1a; */
+  /* background-color: #0d0d0d; */
 }
 
 * {
@@ -15,6 +18,10 @@ body {
 }
 
 :root {
+  --b: #1a1a1a;
+  --w: #f2f2f2;
+  --w-2: #b3b3b3;
+
   --black: #0b0d0e;
   --deep-blue: #374843;
   --blue: #4e5f62;
