@@ -4,6 +4,28 @@ import { FormEvent, useState } from "react";
 import classes from "../styles/screens/sign.module.css";
 import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
+
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, provider, app } from "../firebase/config";
+// import {  signInWithPopup } from "firebase/auth";
+
+console.log(app);
+
+// signInWithPopup(auth, provider)
+//   .then((result) => {
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     const user = result.user;
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+
+//     const email = error.customData.email;
+
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//   });
+
 const Home: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +34,10 @@ const Home: NextPage = () => {
     e.preventDefault();
     try {
     } catch (error) {}
+  };
+
+  const handleGoogleSignIn = async () => {
+    const res = await signInWithPopup(auth, provider);
   };
 
   return (
@@ -31,6 +57,8 @@ const Home: NextPage = () => {
         <form className={classes.form} onSubmit={handleSubmit}>
           <input type="text" placeholder="Enter your email  address" />
           <input type="password" placeholder="Enter your password" />
+
+          <button className={classes.google}>Google SignIn</button>
           <div>
             <span>Does not have an account?</span>
             <Link href="/">Create an account</Link>

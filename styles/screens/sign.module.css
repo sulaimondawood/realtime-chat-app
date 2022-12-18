@@ -59,4 +59,12 @@
   font-size: 14px;
   color: var(--blue-2);
   padding-right: 5px;
+}
+.sign_in_wrp > .form .google {
+  background-color: var(--blue-2);
+  color: var(--w);
+  padding: 1rem 0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=sign.module.css.map */
