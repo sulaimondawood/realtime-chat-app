@@ -38,6 +38,7 @@ const Home: NextPage = () => {
 
   const handleGoogleSignIn = async () => {
     const res = await signInWithPopup(auth, provider);
+    console.log(res);
   };
 
   return (
@@ -58,7 +59,9 @@ const Home: NextPage = () => {
           <input type="text" placeholder="Enter your email  address" />
           <input type="password" placeholder="Enter your password" />
 
-          <button className={classes.google}>Google SignIn</button>
+          <button onClick={handleGoogleSignIn} className={classes.google}>
+            Google SignIn
+          </button>
           <div>
             <span>Does not have an account?</span>
             <Link href="/">Create an account</Link>
