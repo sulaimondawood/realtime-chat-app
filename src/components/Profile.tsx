@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "../../src/assets/photo.jpeg";
 import classes from "../../styles/components/profile.module.css";
-
+import { authProvider } from "./AuthProvider";
 const Profile = () => {
+  const { authContext } = useContext(authProvider);
+  console.log(authContext);
+
   return (
     <div className={classes.profile}>
       <div className={classes.top}>
@@ -10,9 +13,10 @@ const Profile = () => {
         <p>😎</p>
       </div>
       <div>
-        <img src={Image.src} alt="" />
-        <p className={classes.name}>Dawood Sulaimon</p>
-        <p>sulaimondakddm@gmail.com</p>
+        <img src={authContext.photoURL} alt="" />
+        {/* <img src={Image.src} alt="" /> */}
+        <p className={classes.name}>{authContext.displayName}</p>
+        <p>{authContext.email}</p>
       </div>
     </div>
   );

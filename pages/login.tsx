@@ -1,34 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import classes from "../styles/screens/sign.module.css";
 import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
 
+// firebase
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider, app } from "../firebase/config";
-// import {  signInWithPopup } from "firebase/auth";
+import { db, auth, provider, app } from "../firebase/config";
+import { doc, setDoc } from "firebase/firestore";
 
-console.log(app);
+// firebase
 
-// signInWithPopup(auth, provider)
-//   .then((result) => {
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     const user = result.user;
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-
-//     const email = error.customData.email;
-
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//   });
+import { authProvider } from "../src/components/AuthProvider";
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { authContext } = useContext(authProvider);
+
+  console.log(authContext);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -37,8 +29,24 @@ const Home: NextPage = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    const res = await signInWithPopup(auth, provider);
-    console.log(res);
+    try {
+      const res = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(res);
+      console.log(res);
+      await setDoc(doc(db, "users", authContext.uid), {
+        id: authContext.uid,
+        name: authContext.displayName,
+        email: authContext.email,
+        photo: authContext.photoURL,
+      });
+    } catch (error: any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      // const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    }
   };
 
   return (
