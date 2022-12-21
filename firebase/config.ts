@@ -1,10 +1,9 @@
 import { initializeApp } from "firebase/app";
-import firebase from "firebase/app";
 
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // const firebaseConfig = {
-//   apiKey: process.env.NEXT_APP_KEY,
+//   apiKey: process.env.NEXT_APP_KEY,]
 //   authDomain: process.env.NEXT_AUTH_DOMAIN,
 //   projectId: process.env.PROJECT_ID,
 //   storageBucket: process.env.STORAGE_BUCKET,
