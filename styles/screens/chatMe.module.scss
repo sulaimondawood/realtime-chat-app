@@ -1,6 +1,86 @@
-.main {
-  max-width: 90%;
-  display: grid;
+.grand {
+  width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
-  grid-template-columns: 1fr 2fr 1fr;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+
+    > h1 {
+      font-weight: 600;
+      font-size: 26px;
+    }
+
+    > button {
+      border: none;
+      padding: 1em 2em;
+      cursor: pointer;
+      border-radius: 20px;
+      font-size: 14px;
+      background-color: white;
+    }
+  }
+
+  .top_2 {
+    display: flex;
+    margin: 30px 0;
+    margin-top: 0;
+    justify-content: space-between;
+
+    .search {
+      position: relative;
+      width: 100%;
+      height: 50px;
+
+      > input {
+        height: 100%;
+        width: 320px;
+        border-radius: 30px;
+        border: none;
+        padding: 0 10px;
+        outline: none;
+        text-indent: 30px;
+        background-color: white;
+
+        // box-shadow: 0 4px 5px #00000020;
+
+        &::placeholder {
+          font-size: 16px;
+          text-indent: 30px;
+          color: var(--prm-d-blue);
+        }
+      }
+
+      > svg {
+        position: absolute;
+        left: 13px;
+        top: 50%;
+        width: 19px;
+        transform: translateY(-50%);
+        path {
+          stroke: var(--prm-d-blue);
+        }
+      }
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+      > button {
+        border: none;
+        padding: 1em 2em;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 12px;
+        background-color: white;
+      }
+    }
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }

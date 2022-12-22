@@ -11,8 +11,9 @@ const RecentMessage = () => {
         <p className={classes.msg_msg}>Hey there! how's it going over there</p>
       </div>
       <div className={classes.time_wrp}>
-        <p className={classes.dates}>02/10</p>
-        <p className={classes.no}></p>
+        <p className={classes.dates}>02:10</p>
+        {/* <p className={classes.no}></p> */}
+        <p className={classes.nos}>3</p>
       </div>
     </div>
   );

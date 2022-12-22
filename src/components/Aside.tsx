@@ -5,7 +5,7 @@ import RecentMessage from "./RecentMessage";
 const Aside = () => {
   return (
     <section className={classes.aside}>
-      <div className={classes.search}>
+      {/* <div className={classes.search}>
         <input type="text" placeholder="Search" />
         <svg
           width="24"
@@ -29,20 +29,16 @@ const Aside = () => {
             stroke-linejoin="round"
           />
         </svg>
-      </div>
+      </div> */}
 
       <div className={classes.btm}>
         <div className={classes.top}>
-          <h2>
+          {/* <h2>
             Inbox <span>4 new</span>
-          </h2>
+          </h2> */}
 
-          <p className={classes.recent}>Recent Chats</p>
+          {/* <p className={classes.recent}>Recent Chats</p> */}
           <div className={classes.recent_msgs}>
-            <RecentMessage />
-            <RecentMessage />
-            <RecentMessage />
-            <RecentMessage />
             <RecentMessage />
             <RecentMessage />
             <RecentMessage />

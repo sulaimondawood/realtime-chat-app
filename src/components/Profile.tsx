@@ -15,7 +15,8 @@ const Profile = () => {
       <div>
         <img src={authContext.photoURL} alt="" />
         {/* <img src={Image.src} alt="" /> */}
-        <p className={classes.name}>{authContext.displayName}</p>
+        {/* <p className={classes.name}>{authContext.displayName}</p> */}
+        <p className={classes.name}>Dawood Sulaimon</p>
         <p>{authContext.email}</p>
       </div>
     </div>
