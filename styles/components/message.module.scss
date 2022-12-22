@@ -3,6 +3,7 @@
   height: calc(100vh - 386px);
   // height: calc(100vh - 186px);
   // overflow-y: scroll;
+  position: relative;
 
   // .top {
   //   display: flex;
@@ -61,17 +62,26 @@
     background-color: white;
     border-radius: 30px;
     margin-bottom: 30px;
-
-    overflow-y: scroll;
     height: calc(100vh - 186px);
+    // overflow-y: scroll;
     width: 100%;
     margin-top: 5px;
     padding: 2rem;
+    padding-top: 0;
     // padding-bottom: 0px;
     position: relative;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .msgs_wrp {
+      height: calc(100vh - 286px);
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     > .date {

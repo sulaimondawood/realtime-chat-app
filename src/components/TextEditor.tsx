@@ -1,4 +1,4 @@
-// import classes from "../../styles/components/textEditor.module.css";
+import { RiSendPlaneLine } from "react-icons/ri";
 import classes from "../../styles/components/textEditor.module.css";
 const TextEditor = () => {
   return (
@@ -6,7 +6,9 @@ const TextEditor = () => {
       <div className={classes.form}>
         <form>
           <input type="text" placeholder="Type a message" />
-          <button>Send</button>
+          <button>
+            <RiSendPlaneLine />
+          </button>
         </form>
       </div>
     </div>

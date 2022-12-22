@@ -31,12 +31,11 @@ const Aside = () => {
         </svg>
       </div> */}
 
+      <h2>
+        Inbox <span>4 new</span>
+      </h2>
       <div className={classes.btm}>
         <div className={classes.top}>
-          {/* <h2>
-            Inbox <span>4 new</span>
-          </h2> */}
-
           {/* <p className={classes.recent}>Recent Chats</p> */}
           <div className={classes.recent_msgs}>
             <RecentMessage />

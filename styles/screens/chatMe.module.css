@@ -8,6 +8,64 @@
   justify-content: space-between;
   padding: 30px 0;
 }
+.grand .top .links {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.grand .top .links .search {
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+.grand .top .links .search > input {
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  padding: 0 10px;
+  outline: none;
+  text-indent: 30px;
+  background-color: white;
+}
+.grand .top .links .search > input::-moz-placeholder {
+  font-size: 16px;
+  text-indent: 30px;
+  color: var(--prm-d-blue);
+}
+.grand .top .links .search > input:-ms-input-placeholder {
+  font-size: 16px;
+  text-indent: 30px;
+  color: var(--prm-d-blue);
+}
+.grand .top .links .search > input::placeholder {
+  font-size: 16px;
+  text-indent: 30px;
+  color: var(--prm-d-blue);
+}
+.grand .top .links .search > svg {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 19px;
+  transform: translateY(-50%);
+}
+.grand .top .links .search > svg path {
+  stroke: var(--prm-d-blue);
+}
+.grand .top .links > div {
+  display: flex;
+  gap: 20px;
+}
+.grand .top .links > div a {
+  font-size: 14px;
+  color: var(--prm-d-blue);
+  text-decoration: none;
+}
+.grand .top .links > div a:hover {
+  color: var(--prm-blue);
+}
 .grand .top > h1 {
   font-weight: 600;
   font-size: 26px;
@@ -72,6 +130,7 @@
 }
 .grand .top_2 .btns > button {
   border: none;
+  width: 130px;
   padding: 1em 2em;
   cursor: pointer;
   border-radius: 20px;

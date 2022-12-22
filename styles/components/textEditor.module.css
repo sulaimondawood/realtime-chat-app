@@ -1,6 +1,6 @@
 .text_editor {
   position: fixed;
-  bottom: 0;
+  bottom: 60px;
   width: 520px;
 }
 .text_editor .form > form {
@@ -10,8 +10,15 @@
 }
 .text_editor button {
   border: none;
-  width: 50px;
+  width: 80px;
   background-color: rgb(23, 117, 81);
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 30px;
 }
 .text_editor input {
   width: 100%;

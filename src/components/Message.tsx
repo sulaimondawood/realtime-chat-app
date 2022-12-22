@@ -22,54 +22,56 @@ const Message = () => {
       </div> */}
       <div className={classes.btm}>
         {/* <p className={classes.date}>Augus 21</p> */}
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
-        </div>
+        <div className={classes.msgs_wrp}>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
 
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
-        </div>
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
-        </div>
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
-        </div>
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
-        </div>
-        <div className={classes.msgs}>
-          <img src={Image.src} alt="" />
-          <p className={classes.msg}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-            iure, magnam quasi delectus maxime vero eveniet voluptatum modi id
-            odit!
-          </p>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
+          <div className={classes.msgs}>
+            <img src={Image.src} alt="" />
+            <p className={classes.msg}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda iure, magnam quasi delectus maxime vero eveniet
+              voluptatum modi id odit!
+            </p>
+          </div>
         </div>
         <TextEditor />
       </div>

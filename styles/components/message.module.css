@@ -1,19 +1,27 @@
 .message {
   padding: 30px;
   height: calc(100vh - 386px);
+  position: relative;
 }
 .message .btm {
   background-color: white;
   border-radius: 30px;
   margin-bottom: 30px;
-  overflow-y: scroll;
   height: calc(100vh - 186px);
   width: 100%;
   margin-top: 5px;
   padding: 2rem;
+  padding-top: 0;
   position: relative;
 }
 .message .btm::-webkit-scrollbar {
+  display: none;
+}
+.message .btm .msgs_wrp {
+  height: calc(100vh - 286px);
+  overflow-y: scroll;
+}
+.message .btm .msgs_wrp::-webkit-scrollbar {
   display: none;
 }
 .message .btm > .date {
