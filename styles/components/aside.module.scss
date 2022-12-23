@@ -5,6 +5,27 @@
   &::-webkit-scrollbar {
     display: none;
   }
+  .msg {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--deep-blue);
+
+    .img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+
+    > .msg_name {
+      font-size: 18px;
+      text-transform: capitalize;
+      color: var(--prm-d-blue);
+    }
+  }
   // .search {
   //   position: relative;
   //   width: 100%;

@@ -78,6 +78,15 @@
   font-size: 14px;
   background-color: white;
 }
+.grand .top img {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 50%;
+}
 .grand .top_2 {
   display: flex;
   margin: 30px 0;

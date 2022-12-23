@@ -5,6 +5,27 @@
 .aside::-webkit-scrollbar {
   display: none;
 }
+.aside .msg {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--deep-blue);
+}
+.aside .msg .img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 50%;
+}
+.aside .msg > .msg_name {
+  font-size: 18px;
+  text-transform: capitalize;
+  color: var(--prm-d-blue);
+}
 .aside .btm {
   background-color: white;
   border-radius: 30px;

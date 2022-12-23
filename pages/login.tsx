@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       const res = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(res);
       console.log(res);
-      await setDoc(doc(db, "users", authContext.uid), {
+      await setDoc(doc(db, "users", res.user.uid), {
         id: authContext.uid,
         name: authContext.displayName,
         email: authContext.email,
