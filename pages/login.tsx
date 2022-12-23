@@ -47,6 +47,7 @@ const Home: NextPage = () => {
         photo: authContext.photoURL,
       });
 
+      await setDoc(doc(db, "usersChats", res.user.uid), {});
       setIsLoading(false);
       router.push("/chatMe");
       console.log(router);
@@ -73,34 +74,29 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {isLoading ? (
-        "Loading..."
-      ) : (
-        <main className={classes.sign_in_wrp}>
-          <h3 className={classes.top}> RealTime Chat App</h3>
-          <h2 className={classes.title}>Sign In</h2>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <input type="text" placeholder="Enter your email  address" />
-            <input type="password" placeholder="Enter your password" />
 
-            <button onClick={handleGoogleSignIn} className={classes.google}>
-              Google SignIn
-            </button>
-            {error && (
-              <p
-                style={{ textAlign: "center", fontSize: "12px", color: "red" }}
-              >
-                {/* Something went wrong */}
-                {errorMsg}
-              </p>
-            )}
-            <div>
-              <span>Does not have an account?</span>
-              <Link href="/">Create an account</Link>
-            </div>
-          </form>
-        </main>
-      )}
+      <main className={classes.sign_in_wrp}>
+        <h3 className={classes.top}> RealTime Chat App</h3>
+        <h2 className={classes.title}>Sign In</h2>
+        <form className={classes.form} onSubmit={handleSubmit}>
+          <input type="text" placeholder="Enter your email  address" />
+          <input type="password" placeholder="Enter your password" />
+
+          <button onClick={handleGoogleSignIn} className={classes.google}>
+            Google SignIn
+          </button>
+          {error && (
+            <p style={{ textAlign: "center", fontSize: "12px", color: "red" }}>
+              {/* Something went wrong */}
+              {errorMsg}
+            </p>
+          )}
+          <div>
+            <span>Does not have an account?</span>
+            <Link href="/">Create an account</Link>
+          </div>
+        </form>
+      </main>
     </div>
   );
 };
