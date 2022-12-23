@@ -11,6 +11,10 @@
     gap: 20px;
     padding-bottom: 10px;
     border-bottom: 3px solid var(--deep-blue);
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(228, 217, 217);
+    }
 
     .img {
       width: 40px;
