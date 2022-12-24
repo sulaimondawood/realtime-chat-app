@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // if (!authContext) {
   //   return <Home />;
   // }
-  console.log(authContext);
+  // console.log(authContext);
 
   return (
     <AuthProvider>

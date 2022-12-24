@@ -3,16 +3,14 @@ import Aside from "../src/components/Aside";
 import Message from "../src/components/Message";
 import classes from "../styles/screens/chatMe.module.css";
 import Profile from "../src/components/Profile";
-import Link from "next/link";
 
 import { auth, db } from "../firebase/config";
 import { signOut } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
+import Link from "next/link";
 import { authProvider } from "../src/components/AuthProvider";
-// import Image from "../../src/assets/photo.jpeg";
-import Image from "../src/assets/photo.jpeg";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export const searchContext = createContext({});
 
@@ -25,19 +23,21 @@ const chatMe = () => {
 
   const router = useRouter();
 
+  console.log(user);
+
   const searchUser = async () => {
     try {
       const searchedUser = collection(db, "users");
-      const q = query(searchedUser, where("name", "==", userName));
+      const q = query(searchedUser, where("displayName", "==", userName));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log("me");
         setUser(doc.data() as any);
       });
       setIsLoadingUser(true);
     } catch (error) {
+      // setUser("");
       setIsLoadingUser(false);
-      setError(true);
+      // setError(true);
     }
   };
   const handleKey = (e: any) => {
@@ -100,9 +100,10 @@ const chatMe = () => {
               <Link href="/">FAQS</Link>
             </div>
           </div>
+
           <img
             className={classes.img}
-            referrerpolicy="no-referrer"
+            referrerPolicy="no-referrer"
             src={authContext?.photoURL}
             alt=""
           />

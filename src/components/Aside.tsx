@@ -20,23 +20,46 @@ const Aside = () => {
   const { isLoadingUser, setIsLoadingUser, error, setUserName }: any =
     useContext(searchContext);
   // useContext for current User
+
   const { authContext } = useContext(authProvider);
   // useContext for current User
-  // console.log(user2?.user.id);
+  console.log(authContext.uid, user2.user.uid);
 
   const handleSearchedUser = async () => {
     setUserName("");
     setIsLoadingUser(false);
 
     const combinedID =
-      authContext.uid > user2.user.id
-        ? authContext.uid + user2.user.id
-        : user2.user.id + authContext.uid;
+      authContext.uid > user2.user.uid
+        ? authContext.uid + user2.user.uid
+        : user2.user.uid + authContext.uid;
+    try {
+      const res = await getDoc(doc(db, "chats", combinedID));
 
-    const res = await getDoc(doc(db, "chats", combinedID));
-    if (!res.exists()) {
+      // if (!res.exists()) {
       await setDoc(doc(db, "chats", combinedID), { messages: [] });
-      await updateDoc(doc(db, "usersChats", user2.id), { name: "me" });
+
+      await updateDoc(doc(db, "userChats", authContext?.uid), {
+        [combinedID + ".userInfo"]: {
+          uid: user2?.user?.uid,
+          photoURL: user2?.user?.photoURL,
+          displayName: user2?.user?.displayName,
+        },
+        [combinedID + ".date"]: serverTimestamp(),
+      });
+      await updateDoc(doc(db, "userChats", user2?.user?.uid), {
+        [combinedID + ".userInfo"]: {
+          uid: authContext.uid,
+          photoURL: authContext.photoURL,
+          displayName: authContext.displayName,
+        },
+        [combinedID + ".date"]: serverTimestamp(),
+      });
+
+      console.log("Try Ctach");
+      // }
+    } catch (error) {
+      console.log("errroorrrrr!!!!!!!");
     }
   };
 
@@ -46,11 +69,11 @@ const Aside = () => {
         <div className={classes.msg} onClick={handleSearchedUser}>
           <img
             className={classes.img}
-            src={user2?.user.photo}
-            referrerpolicy="no-referrer"
+            src={user2?.user.photoURL}
+            referrerPolicy="no-referrer"
             alt=""
           />
-          <p className={classes.msg_name}>{user2?.user.name}</p>
+          <p className={classes.msg_name}>{user2?.user.displayName}</p>
         </div>
       )}
       {error && <p>No user found!</p>}

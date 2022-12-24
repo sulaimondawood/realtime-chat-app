@@ -16,17 +16,17 @@ import { authProvider } from "../src/components/AuthProvider";
 import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  // router
+  const router = useRouter();
+  // router
+
+  // states
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [password, setPassword] = useState("");
-
-  const { authContext } = useContext(authProvider);
-
-  const router = useRouter();
-
-  console.log(authContext);
+  // states
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -34,35 +34,30 @@ const Home: NextPage = () => {
     } catch (error) {}
   };
 
+  // google sigin async function
   const handleGoogleSignIn = async () => {
     try {
-      setIsLoading(true);
       const res = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(res);
       console.log(res);
       await setDoc(doc(db, "users", res.user.uid), {
-        id: authContext.uid,
-        name: authContext.displayName,
-        email: authContext.email,
-        photo: authContext.photoURL,
+        uid: res.user.uid,
+        displayName: res.user.displayName,
+        email: res.user.email,
+        photoURL: res.user.photoURL,
       });
 
-      await setDoc(doc(db, "usersChats", res.user.uid), {});
-      setIsLoading(false);
+      await setDoc(doc(db, "userChats", res.user.uid), {});
       router.push("/chatMe");
-      console.log(router);
     } catch (error: any) {
-      setTimeout(() => {
-        return setError(true);
-      }, 1000);
       const errorCode = error.code;
       const errorMessage = error.message;
       setErrorMsg(errorMessage);
-      // console.log(errorMessage);
-      // clearTimeout()
+
       const credential = GoogleAuthProvider.credentialFromError(error);
     }
   };
+  // google sigin async function
 
   return (
     <div>
