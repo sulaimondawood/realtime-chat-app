@@ -1,7 +1,12 @@
 import { initializeApp } from "firebase/app";
 
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage, ref } from "firebase/storage";
 // const firebaseConfig = {
 //   apiKey: process.env.NEXT_APP_KEY,]
 //   authDomain: process.env.NEXT_AUTH_DOMAIN,
@@ -23,6 +28,9 @@ const firebaseConfig = {
 // }
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
+export const storage = getStorage();
+export const storageRef = ref(storage);
 // export const db = getFirestore(app);
+// export const emailPassUser = createUserWithEmailAndPassword;
 export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
