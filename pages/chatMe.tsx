@@ -23,7 +23,7 @@ const chatMe = () => {
 
   const router = useRouter();
 
-  console.log(user);
+  // console.log(user);
 
   const searchUser = async () => {
     try {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "../../styles/components/aside.module.css";
 import Search from "../../src/assets/search.svg";
 import RecentMessage from "./RecentMessage";
@@ -8,23 +8,28 @@ import { authProvider } from "./AuthProvider";
 import {
   doc,
   getDoc,
+  onSnapshot,
   serverTimestamp,
   setDoc,
   updateDoc,
 } from "firebase/firestore";
+// import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
 const Aside = () => {
+  // state
+  const [userSnap, setUserSnap] = useState("");
+  const [idFromSnap, setIdFromSnap] = useState([]);
+  // state
   const user2: any = useContext(searchContext);
-
   // useContext for search input
   const { isLoadingUser, setIsLoadingUser, error, setUserName }: any =
     useContext(searchContext);
   // useContext for current User
-
   const { authContext } = useContext(authProvider);
   // useContext for current User
-  console.log(authContext.uid, user2.user.uid);
+  // console.log(authContext.uid, user2.user.uid);
 
+  // let combinedID: string;
   const handleSearchedUser = async () => {
     setUserName("");
     setIsLoadingUser(false);
@@ -36,8 +41,9 @@ const Aside = () => {
     try {
       const res = await getDoc(doc(db, "chats", combinedID));
 
-      // if (!res.exists()) {
-      await setDoc(doc(db, "chats", combinedID), { messages: [] });
+      if (!res.exists()) {
+        await setDoc(doc(db, "chats", combinedID), { messages: [] });
+      }
 
       await updateDoc(doc(db, "userChats", authContext?.uid), {
         [combinedID + ".userInfo"]: {
@@ -57,11 +63,38 @@ const Aside = () => {
       });
 
       console.log("Try Ctach");
-      // }
     } catch (error) {
       console.log("errroorrrrr!!!!!!!");
     }
   };
+  useEffect(() => {
+    const snapLoads = () => {
+      const unsub = onSnapshot(doc(db, "userChats", authContext.uid), (doc) => {
+        console.log(authContext.uid);
+
+        console.log("Current data: ", doc.data());
+
+        // setIdFromSnap();
+        setUserSnap(doc.data() as any);
+      });
+      // const unsub = onSnapshot(doc(db, "userChats", authContext.uid), (doc) => {
+      //   setUserSnap(doc.data() as any);
+      //   console.log(Object.entries(userSnap));
+      //   setIdFromSnap(Object.entries(userSnap) as any);
+
+      //   console.log(doc.data());
+      //   // console.log(userSnapArr);
+      //   console.log(authContext.uid);
+      //   console.log(Object.entries(doc.data() as any)[0][0]);
+      //   console.log(idFromSnap);
+      //   console.log("Helloo");
+      // });
+    };
+
+    authContext.uid && snapLoads();
+  }, [authContext.uid]);
+
+  // console.log(userSnapArr[0]);
 
   return (
     <section className={classes.aside}>
@@ -76,13 +109,39 @@ const Aside = () => {
           <p className={classes.msg_name}>{user2?.user.displayName}</p>
         </div>
       )}
-      {error && <p>No user found!</p>}
+      {error && <p>No user foun(d!</p>}
       <div className={classes.btm}>
         <div className={classes.top}>
           <div className={classes.recent_msgs}>
+            {/* {authContext.uid &&
+              Object?.entries(userSnap as any)?.map((item: any) => {
+                return (
+                  <RecentMessage
+                    key={item[0]}
+                    displayName={item[1].userInfo.displayName}
+                    photoURL={item[1].userInfo.photoURL}
+                    date={item[1].userInfo.date}
+                  />
+                );
+              })} */}
+
+            {/* ////// */}
+            {/* {userSnapArr[0].map((item: any) => {
+              const { photoURL, displayName } = item.userInfo;
+              const { date } = item;
+              console.log(item);
+              return (
+                <RecentMessage
+                  photoURL={photoURL}
+                  displayName={displayName}
+                  date={date}
+                />
+              );
+            })} */}
+            {/* ////// */}
             <RecentMessage />
-            <RecentMessage />
-            <RecentMessage />
+            {/* <RecentMessage />
+            <RecentMessage /> */}
           </div>
         </div>
       </div>
