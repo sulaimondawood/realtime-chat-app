@@ -6,7 +6,11 @@ import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
 
 // firebase
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { db, auth, provider, app } from "../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -27,6 +31,21 @@ const Home: NextPage = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [password, setPassword] = useState("");
   // states
+
+  const handleSignInEmail = async () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -76,7 +95,7 @@ const Home: NextPage = () => {
         <form className={classes.form} onSubmit={handleSubmit}>
           <input type="text" placeholder="Enter your email  address" />
           <input type="password" placeholder="Enter your password" />
-
+          <button onClick={handleSignInEmail}>Submit</button>
           <button onClick={handleGoogleSignIn} className={classes.google}>
             Google SignIn
           </button>
