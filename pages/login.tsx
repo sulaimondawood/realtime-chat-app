@@ -32,19 +32,16 @@ const Home: NextPage = () => {
   const [password, setPassword] = useState("");
   // states
 
-  const handleSignInEmail = async () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
+  const handleSignInEmail = async (e: FormEvent) => {
+    e.preventDefault();
 
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      console.log(res.user);
+    } catch (error: any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    }
   };
 
   // google sigin async function
@@ -87,8 +84,18 @@ const Home: NextPage = () => {
         <h3 className={classes.top}> RealTime Chat App</h3>
         <h2 className={classes.title}>Sign In</h2>
         <form className={classes.form} onSubmit={handleSignInEmail}>
-          <input type="text" placeholder="Enter your email  address" />
-          <input type="password" placeholder="Enter your password" />
+          <input
+            type="text"
+            placeholder="Enter your email  address"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button onClick={handleSignInEmail}>Submit</button>
           <button onClick={handleGoogleSignIn} className={classes.google}>
             Google SignIn
