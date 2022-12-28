@@ -18,7 +18,7 @@
   display: none;
 }
 .message .btm .msgs_wrp {
-  height: calc(100vh - 286px);
+  height: calc(100vh - 306px);
   overflow-y: scroll;
 }
 .message .btm .msgs_wrp::-webkit-scrollbar {
@@ -42,7 +42,11 @@
   gap: 10px;
   margin-top: 50px;
 }
-.message .btm .msgs > img {
+.message .btm .msgs .img_f {
+  display: flex;
+  flex-direction: column;
+}
+.message .btm .msgs .img_f > img {
   width: 40px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -50,6 +54,9 @@
      object-position: center;
   border-radius: 50%;
   height: 40px;
+}
+.message .btm .msgs .img_f > p {
+  font-size: 10px;
 }
 .message .btm .msgs .msg {
   font-size: 12px;

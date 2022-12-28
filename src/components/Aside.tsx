@@ -113,6 +113,7 @@ const Aside = () => {
                     key={item[0]}
                     displayName={item[1].userInfo.displayName}
                     photoURL={item[1].userInfo.photoURL}
+                    msg={item[1].lastMessage.message}
                     date={item[1].userInfo.date}
                     clickMe={() => handleSetUser(item[1].userInfo)}
                   />

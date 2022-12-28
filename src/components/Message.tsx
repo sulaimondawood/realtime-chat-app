@@ -27,7 +27,9 @@ const Message = () => {
   }, [state.userID]);
 
   const refLatestMsg = useRef(null);
-  refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
+  useEffect(() => {
+    refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
+  }, [chatMsgs]);
 
   return (
     <section className={classes.message}>
@@ -57,6 +59,15 @@ const Message = () => {
               senderID: string;
               photoURL: string;
             }) => {
+              const { nanoseconds, seconds } = item.date;
+              const fireBaseTime = new Date(
+                seconds * 1000 + nanoseconds / 1000000
+              );
+              const dates = fireBaseTime.toDateString();
+              const atTime = fireBaseTime.toLocaleTimeString();
+              // console.log(dates);
+              console.log(atTime);
+
               return (
                 <div
                   ref={refLatestMsg}
@@ -64,14 +75,19 @@ const Message = () => {
                     authContext.uid !== item.senderID && classes.recipient
                   } `}
                 >
-                  <img
-                    src={
-                      authContext.uid === item.senderID
-                        ? authContext.photoURL
-                        : item.photoURL
-                    }
-                    alt=""
-                  />
+                  <div className={classes.img_f}>
+                    <img
+                      src={
+                        authContext.uid === item.senderID
+                          ? authContext.photoURL
+                          : item.photoURL
+                      }
+                      alt=""
+                    />
+                    {/* <p>{item.date}</p> */}
+                    <p>just now</p>
+                  </div>
+
                   <p
                     className={`${classes.msg} ${
                       authContext.uid === item.senderID

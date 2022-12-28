@@ -47,12 +47,6 @@ const Home: NextPage = () => {
       });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    try {
-    } catch (error) {}
-  };
-
   // google sigin async function
   const handleGoogleSignIn = async () => {
     try {
@@ -92,7 +86,7 @@ const Home: NextPage = () => {
       <main className={classes.sign_in_wrp}>
         <h3 className={classes.top}> RealTime Chat App</h3>
         <h2 className={classes.title}>Sign In</h2>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form className={classes.form} onSubmit={handleSignInEmail}>
           <input type="text" placeholder="Enter your email  address" />
           <input type="password" placeholder="Enter your password" />
           <button onClick={handleSignInEmail}>Submit</button>

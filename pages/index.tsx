@@ -31,52 +31,29 @@ const Home: NextPage = () => {
       console.log(res);
 
       const storageRef = ref(storage, email);
-      const uploadTask = uploadBytesResumable(storageRef, fileData as any);
+      const uploadTask = uploadBytesResumable(storageRef, fileData);
 
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
-          // Observe state change events such as progress, pause, and resume
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          switch (snapshot.state) {
-            case "paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-          }
-        },
-        (error) => {
-          // Handle unsuccessful uploads
-        },
+        (snapshot) => {},
+        (error) => {},
         () => {
-          // Handle successful uploads on complete
-          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(res.user, {
               photoURL: downloadURL,
               displayName: name,
             });
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName: name,
+              email,
+              photoURL: downloadURL,
+            });
           });
         }
       );
 
-      // await setDoc(doc(db, "users", res.user.uid), {
-      //   uid: res.user.uid,
-      //   displayName: res.user.displayName,
-      //   email: res.user.email,
-      //   photoURL: res.user.photoURL,
-      // });
-
-      // await setDoc(doc(db, "userChats", res.user.uid), {});
-      // uploadBytes(storageRef, file).then((snapshot) => {
-      //   console.log("Uploaded a blob or file!");
-      // });
-      console.log("me");
+      await setDoc(doc(db, "userChats", res.user.uid), {});
       console.log(fileData);
     } catch (error: any) {
       const errorCode = error.code;
@@ -135,7 +112,7 @@ const Home: NextPage = () => {
               className={classes.file}
               type="file"
               id="file"
-              value={fileData}
+              // value={fileData}
               onChange={handleFile}
             />
           </div>

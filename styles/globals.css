@@ -11,6 +11,8 @@ body {
   background-color: rgb(233, 237, 241);
   /* background-image: linear-gradient(90deg, #0b22f6, #2b2656); */
   background-color: var(--prm-w);
+
+  scroll-behavior: smooth;
 }
 
 * {
