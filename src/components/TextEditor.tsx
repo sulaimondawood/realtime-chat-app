@@ -13,7 +13,7 @@ const TextEditor = () => {
   const { authContext } = useContext(authProvider);
   console.log(state.userID, msg);
 
-  const updateMsg = async (e) => {
+  const updateMsg = async (e: any) => {
     e.preventDefault();
     await updateDoc(doc(db, "chats", state.userID), {
       messages: arrayUnion({
@@ -21,6 +21,7 @@ const TextEditor = () => {
         senderID: authContext.uid,
         message: msg,
         date: Timestamp.now(),
+        photoURL: authContext.photoURL,
       }),
     });
   };

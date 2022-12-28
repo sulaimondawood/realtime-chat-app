@@ -60,6 +60,9 @@
   max-width: max-content;
   border-radius: 0 30px 30px 30px;
 }
+.message .btm .recipient {
+  flex-direction: row-reverse;
+}
 
 .message::-webkit-scrollbar {
   display: none;
