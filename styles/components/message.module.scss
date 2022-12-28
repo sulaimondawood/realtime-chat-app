@@ -114,12 +114,21 @@
 
       .msg {
         font-size: 12px;
-        background-color: var(--prm-w);
         padding: 1.3rem;
         // border: 3px solid rgb(250, 249, 249);
         // box-shadow: 0 0 5px #00000030;
         max-width: max-content;
         border-radius: 0 30px 30px 30px;
+      }
+
+      .owner_msg {
+        background-color: var(--prm-w);
+      }
+
+      .recipient_msg {
+        color: white;
+        background-color: var(--prm-brown);
+        // background-color: rgb(23, 117, 81);
       }
     }
 

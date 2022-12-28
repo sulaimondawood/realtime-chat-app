@@ -53,12 +53,18 @@
 }
 .message .btm .msgs .msg {
   font-size: 12px;
-  background-color: var(--prm-w);
   padding: 1.3rem;
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
   border-radius: 0 30px 30px 30px;
+}
+.message .btm .msgs .owner_msg {
+  background-color: var(--prm-w);
+}
+.message .btm .msgs .recipient_msg {
+  color: white;
+  background-color: var(--prm-brown);
 }
 .message .btm .recipient {
   flex-direction: row-reverse;

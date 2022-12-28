@@ -11,7 +11,7 @@ const TextEditor = () => {
   const [msg, setMsg] = useState("");
   const { state } = useContext(chatProvider);
   const { authContext } = useContext(authProvider);
-  console.log(state.userID, msg);
+  // console.log();
 
   const updateMsg = async (e: any) => {
     e.preventDefault();
@@ -24,6 +24,7 @@ const TextEditor = () => {
         photoURL: authContext.photoURL,
       }),
     });
+    setMsg("");
   };
 
   return (
