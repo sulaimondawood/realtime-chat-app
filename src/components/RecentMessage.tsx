@@ -2,9 +2,9 @@ import React from "react";
 import classes from "../../styles/components/recentMsg.module.css";
 import Image from "../../src/assets/photo.jpeg";
 
-const RecentMessage = ({ displayName, photoURL, date }: any) => {
+const RecentMessage = ({ displayName, photoURL, date, clickMe }: any) => {
   return (
-    <div className={classes.msg}>
+    <div onClick={() => clickMe} className={classes.msg}>
       {/* <img className={classes.img} src={Image.src} alt="" /> */}
       <img className={classes.img} src={photoURL} alt="" />
       <div className={classes.msg_contents}>

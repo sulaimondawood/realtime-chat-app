@@ -5,6 +5,7 @@ import Layout from "../src/Layout/Layout";
 import AuthProvider, { authProvider } from "../src/components/AuthProvider";
 import { auth } from "../firebase/config";
 import Home from "./login";
+import ChatProvider from "../src/components/ChatContext";
 function MyApp({ Component, pageProps }: AppProps) {
   const { authContext } = useContext(authProvider);
 
@@ -15,7 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <ChatProvider>
+        <Component {...pageProps} />
+      </ChatProvider>
     </AuthProvider>
   );
 }

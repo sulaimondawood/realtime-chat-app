@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 // import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { chatProvider } from "./ChatContext";
 const Aside = () => {
   // state
   const [userSnap, setUserSnap] = useState("");
@@ -27,7 +28,13 @@ const Aside = () => {
   // useContext for current User
   const { authContext } = useContext(authProvider);
   // useContext for current User
+  const { state, dispatch } = useContext(chatProvider);
   // console.log(authContext.uid, user2.user.uid);
+
+  const handleSetUser = (user: {}) => {
+    dispatch({ type: "SET_USER", payload: user });
+    // console.log(state);
+  };
 
   // let combinedID: string;
   const handleSearchedUser = async () => {
@@ -70,12 +77,12 @@ const Aside = () => {
   useEffect(() => {
     const snapLoads = () => {
       const unsub = onSnapshot(doc(db, "userChats", authContext.uid), (doc) => {
-        console.log(authContext.uid);
-        console.log(doc.data());
+        // console.log(authContext.uid);
+        // console.log(doc.data());
 
         // setIdFromSnap();
         setUserSnap(doc.data() as any);
-        console.log(userSnap);
+        // console.log(userSnap);
       });
     };
 
@@ -95,7 +102,7 @@ const Aside = () => {
           <p className={classes.msg_name}>{user2?.user.displayName}</p>
         </div>
       )}
-      {error && <p>No user foun(d!</p>}
+      {error && <p>No user found!</p>}
       <div className={classes.btm}>
         <div className={classes.top}>
           <div className={classes.recent_msgs}>
@@ -107,6 +114,7 @@ const Aside = () => {
                     displayName={item[1].userInfo.displayName}
                     photoURL={item[1].userInfo.photoURL}
                     date={item[1].userInfo.date}
+                    // clickMe={() => handleSetUser(item[1].userInfo)}
                   />
                 );
               })}
