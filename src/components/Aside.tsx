@@ -33,7 +33,7 @@ const Aside = () => {
 
   const handleSetUser = (user: {}) => {
     dispatch({ type: "SET_USER", payload: user });
-    // console.log(state);
+    console.log(state);
   };
 
   // let combinedID: string;
@@ -114,7 +114,7 @@ const Aside = () => {
                     displayName={item[1].userInfo.displayName}
                     photoURL={item[1].userInfo.photoURL}
                     date={item[1].userInfo.date}
-                    // clickMe={() => handleSetUser(item[1].userInfo)}
+                    clickMe={() => handleSetUser(item[1].userInfo)}
                   />
                 );
               })}
