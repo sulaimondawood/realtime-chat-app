@@ -70,6 +70,7 @@ const Message = () => {
 
               return (
                 <div
+                  key={item.id}
                   ref={refLatestMsg}
                   className={`${classes.msgs} ${
                     authContext.uid !== item.senderID && classes.recipient
@@ -85,7 +86,6 @@ const Message = () => {
                       alt=""
                     />
                     {/* <p>{item.date}</p> */}
-                    <p>just now</p>
                   </div>
 
                   <p
@@ -93,7 +93,11 @@ const Message = () => {
                       authContext.uid === item.senderID
                         ? classes.owner_msg
                         : classes.recipient_msg
-                    }`}
+                    } ${
+                      authContext.uid === item.senderID
+                        ? classes.msg
+                        : classes.msg_recipient
+                    } }`}
                   >
                     {item.message}
                   </p>

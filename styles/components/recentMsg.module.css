@@ -2,6 +2,7 @@
   display: flex;
   gap: 10px;
   padding: 1.3rem 0.8rem;
+  align-items: center;
 }
 .msg > .img {
   width: 60px;

@@ -4,6 +4,9 @@ import Message from "../src/components/Message";
 import classes from "../styles/screens/chatMe.module.css";
 import Profile from "../src/components/Profile";
 
+import { RxAvatar } from "react-icons/Rx";
+import { CiSearch } from "react-icons/Ci";
+
 import { auth, db } from "../firebase/config";
 import { signOut } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -11,6 +14,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import Link from "next/link";
 import { authProvider } from "../src/components/AuthProvider";
 import { useRouter } from "next/router";
+import { FcCallTransfer } from "react-icons/Fc";
 
 export const searchContext = createContext({});
 
@@ -27,13 +31,17 @@ const chatMe = () => {
 
   const searchUser = async () => {
     try {
+      setIsLoadingUser(true);
       const searchedUser = collection(db, "users");
-      const q = query(searchedUser, where("displayName", "==", userName));
+      const q = query(
+        searchedUser,
+        where("displayName", "array-contains", userName)
+      );
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setUser(doc.data() as any);
       });
-      setIsLoadingUser(true);
+      setIsLoadingUser(false);
     } catch (error) {
       // setUser("");
       setIsLoadingUser(false);
@@ -63,34 +71,13 @@ const chatMe = () => {
             <div className={classes.search}>
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search for users"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                // onKeyDown={(e)=>{}}
                 onKeyUp={handleKey}
               />
-              <svg
-                width="24"
-                height="20"
-                viewBox="0 0 24 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.82422 17C14.2425 17 17.8242 13.4183 17.8242 9C17.8242 4.58172 14.2425 1 9.82422 1C5.40594 1 1.82422 4.58172 1.82422 9C1.82422 13.4183 5.40594 17 9.82422 17Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M22.1742 18.9999L17.8242 14.6499"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+
+              <CiSearch />
             </div>
             <div>
               <Link href="/">HOME</Link>
@@ -101,12 +88,19 @@ const chatMe = () => {
             </div>
           </div>
 
-          <img
-            className={classes.img}
-            referrerPolicy="no-referrer"
-            src={authContext?.photoURL}
-            alt=""
-          />
+          {authContext?.photoURL ? (
+            <img
+              className={classes.img}
+              referrerPolicy="no-referrer"
+              src={authContext?.photoURL}
+              alt=""
+            />
+          ) : (
+            <div className="avatar">
+              <RxAvatar />
+            </div>
+          )}
+
           <button onClick={handleLogout}>Logout</button>
         </div>
 

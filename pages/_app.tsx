@@ -1,18 +1,20 @@
 import "../styles/globals.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import type { AppProps } from "next/app";
 import Layout from "../src/Layout/Layout";
 import AuthProvider, { authProvider } from "../src/components/AuthProvider";
 import { auth } from "../firebase/config";
 import Home from "./login";
 import ChatProvider from "../src/components/ChatContext";
+import { searchContext } from "./chatMe";
 function MyApp({ Component, pageProps }: AppProps) {
+  const user2: any = useContext(searchContext);
   const { authContext } = useContext(authProvider);
 
-  // if (!authContext) {
+  // if (!authContext.uid) {
   //   return <Home />;
   // }
-  // console.log(authContext);
+  console.log(authContext);
 
   return (
     <AuthProvider>

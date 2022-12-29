@@ -41,30 +41,41 @@
   cursor: pointer;
 }
 .sign_in_wrp > .form .file_label > .folder {
-  width: 50px;
+  font-size: 50px;
+  color: var(--blue-2);
 }
 .sign_in_wrp > .form .file_label > span {
   color: var(--blue);
   font-size: 12px;
+  margin-left: 20px;
 }
-.sign_in_wrp > .form > div:last-child {
+.sign_in_wrp > div:last-child {
   align-self: flex-end;
   justify-content: flex-end;
   margin-top: 20px;
 }
-.sign_in_wrp > .form > div:last-child a {
+.sign_in_wrp > div:last-child a {
   color: var(--blue);
 }
-.sign_in_wrp > .form > div:last-child span {
+.sign_in_wrp > div:last-child span {
   font-size: 14px;
   color: var(--blue-2);
   padding-right: 5px;
 }
-.sign_in_wrp > .form .google {
+.sign_in_wrp .google {
   background-color: var(--blue-2);
   color: var(--w);
   padding: 1rem 0;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+.sign_in_wrp button {
+  cursor: pointer;
+  border: none;
+  padding: 1em;
+  width: 100%;
+}
+.sign_in_wrp button .google_icon {
+  font-size: 30px;
 }/*# sourceMappingURL=sign.module.css.map */

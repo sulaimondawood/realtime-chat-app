@@ -46,35 +46,48 @@
       cursor: pointer;
 
       > .folder {
-        width: 50px;
+        font-size: 50px;
+        color: var(--blue-2);
       }
       > span {
         color: var(--blue);
         font-size: 12px;
+        margin-left: 20px;
       }
     }
-    > div:last-child {
-      align-self: flex-end;
-      justify-content: flex-end;
-      margin-top: 20px;
+  }
 
-      a {
-        color: var(--blue);
-      }
-      span {
-        font-size: 14px;
-        color: var(--blue-2);
-        padding-right: 5px;
-      }
+  > div:last-child {
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    a {
+      color: var(--blue);
     }
+    span {
+      font-size: 14px;
+      color: var(--blue-2);
+      padding-right: 5px;
+    }
+  }
 
-    .google {
-      background-color: var(--blue-2);
-      color: var(--w);
-      padding: 1rem 0;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
+  .google {
+    background-color: var(--blue-2);
+    color: var(--w);
+    padding: 1rem 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    padding: 1em;
+    width: 100%;
+
+    .google_icon {
+      font-size: 30px;
     }
   }
 }

@@ -5,6 +5,8 @@ import classes from "../styles/screens/sign.module.css";
 import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
 
+import { FcGoogle } from "react-icons/Fc";
+
 // firebase
 import {
   signInWithPopup,
@@ -38,6 +40,7 @@ const Home: NextPage = () => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       console.log(res.user);
+      router.push("/chatMe");
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -81,36 +84,41 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={classes.sign_in_wrp}>
-        <h3 className={classes.top}> RealTime Chat App</h3>
+        {/* <h3 className={classes.top}> RealTime Chat App</h3> */}
         <h2 className={classes.title}>Sign In</h2>
         <form className={classes.form} onSubmit={handleSignInEmail}>
           <input
+            required
             type="text"
             placeholder="Enter your email  address"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
+            required
             type="password"
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleSignInEmail}>Submit</button>
-          <button onClick={handleGoogleSignIn} className={classes.google}>
-            Google SignIn
+          <button className={classes.google} onClick={handleSignInEmail}>
+            Submit
           </button>
-          {error && (
-            <p style={{ textAlign: "center", fontSize: "12px", color: "red" }}>
-              {/* Something went wrong */}
-              {errorMsg}
-            </p>
-          )}
-          <div>
-            <span>Does not have an account?</span>
-            <Link href="/">Create an account</Link>
-          </div>
+          <p style={{ textAlign: "center", paddingBottom: "18px" }}>OR</p>
         </form>
+        <button onClick={handleGoogleSignIn}>
+          <FcGoogle className={classes.google_icon} />
+        </button>
+        {error && (
+          <p style={{ textAlign: "center", fontSize: "12px", color: "red" }}>
+            {/* Something went wrong */}
+            {errorMsg}
+          </p>
+        )}
+        <div>
+          <span>Does not have an account?</span>
+          <Link href="/">Create an account</Link>
+        </div>
       </main>
     </div>
   );

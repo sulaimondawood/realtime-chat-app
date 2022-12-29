@@ -49,3 +49,8 @@ body {
   --prm-brown: #746373;
   --prm-green: #2e4043;
 }
+
+.avatar {
+  font-size: 50px;
+  color: gray;
+}

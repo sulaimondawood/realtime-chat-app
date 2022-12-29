@@ -5,6 +5,8 @@ import classes from "../styles/screens/sign.module.css";
 import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
 
+import { BsFillImageFill } from "react-icons//Bs";
+
 // firebase
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -16,6 +18,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
 // firebase
 
 const Home: NextPage = () => {
@@ -24,6 +27,8 @@ const Home: NextPage = () => {
   const [password, setPassword] = useState("");
   const [fileData, setFileData] = useState("");
   const refs = useRef();
+
+  const router = useRouter();
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -52,7 +57,7 @@ const Home: NextPage = () => {
           });
         }
       );
-
+      router.push("/login");
       await setDoc(doc(db, "userChats", res.user.uid), {});
       console.log(fileData);
     } catch (error: any) {
@@ -80,39 +85,44 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={classes.sign_in_wrp}>
-        <h3 className={classes.top}> RealTime Chat App</h3>
-        <h2 className={classes.title}>Sign Up</h2>
+        {/* <h3 className={classes.top}> RealTime Chat App</h3> */}
+        <h2 className={classes.title}>Create Account</h2>
         <form className={classes.form} onSubmit={handleSubmit}>
           <input
+            required
             type="text"
             placeholder="Enter your username"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
           <input
+            required
             type="text"
             placeholder="Enter your email  address"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
+            required
             type="password"
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
 
-          <button>Create Account</button>
+          <button className={classes.google}>Create Account</button>
           <div className="">
             <label className={classes.file_label} htmlFor="file">
-              <img className={classes.folder} src={Folder.src} alt="" />
+              <div className={classes.folder}>
+                <BsFillImageFill />
+              </div>
+
               <span>Upload your image</span>
             </label>
             <input
               className={classes.file}
               type="file"
               id="file"
-              // value={fileData}
               onChange={handleFile}
             />
           </div>

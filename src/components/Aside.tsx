@@ -77,9 +77,6 @@ const Aside = () => {
   useEffect(() => {
     const snapLoads = () => {
       const unsub = onSnapshot(doc(db, "userChats", authContext.uid), (doc) => {
-        // console.log(authContext.uid);
-        // console.log(doc.data());
-
         // setIdFromSnap();
         setUserSnap(doc.data() as any);
         // console.log(userSnap);
@@ -107,21 +104,20 @@ const Aside = () => {
         <div className={classes.top}>
           <div className={classes.recent_msgs}>
             {authContext.uid &&
-              Object?.entries(userSnap as any)?.map((item: any) => {
-                return (
-                  <RecentMessage
-                    key={item[0]}
-                    displayName={item[1].userInfo?.displayName}
-                    photoURL={item[1]?.userInfo?.photoURL}
-                    msg={item[1]?.lastMessage?.message}
-                    date={item[1]?.userInfo?.date}
-                    clickMe={() => handleSetUser(item[1]?.userInfo)}
-                  />
-                );
-              })}
-
-            {/* <RecentMessage />
-            <RecentMessage /> */}
+              Object?.entries(userSnap as any)
+                ?.sort((a: any, b: any) => b[1].date - a[1].date)
+                .map((item: any) => {
+                  return (
+                    <RecentMessage
+                      key={item[0]}
+                      displayName={item[1].userInfo?.displayName}
+                      photoURL={item[1]?.userInfo?.photoURL}
+                      msg={item[1]?.lastMessage?.message}
+                      date={item[1]?.userInfo?.date}
+                      clickMe={() => handleSetUser(item[1]?.userInfo)}
+                    />
+                  );
+                })}
           </div>
         </div>
       </div>
