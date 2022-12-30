@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classes from "../../styles/components/recentMsg.module.css";
 import Image from "../../src/assets/photo.jpeg";
 import { authProvider } from "./AuthProvider";
-import { RxAvatar } from "react-icons/Rx";
+import { RxAvatar } from "react-icons/rx";
 
 const RecentMessage = ({ displayName, photoURL, date, clickMe, msg }: any) => {
   const { authContext } = useContext(authProvider);

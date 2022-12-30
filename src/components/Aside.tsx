@@ -16,7 +16,7 @@ import {
 // import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { chatProvider } from "./ChatContext";
-import { RxAvatar } from "react-icons/Rx";
+import { RxAvatar } from "react-icons/rx";
 const Aside = () => {
   // state
   const [userSnap, setUserSnap] = useState("");

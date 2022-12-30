@@ -4,8 +4,8 @@ import Message from "../src/components/Message";
 import classes from "../styles/screens/chatMe.module.css";
 import Profile from "../src/components/Profile";
 
-import { RxAvatar } from "react-icons/Rx";
-import { CiSearch } from "react-icons/Ci";
+import { RxAvatar } from "react-icons/rx";
+import { CiSearch } from "react-icons/ci";
 
 import { auth, db } from "../firebase/config";
 import { signOut } from "firebase/auth";
