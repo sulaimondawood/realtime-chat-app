@@ -88,12 +88,15 @@
 @media screen and (max-width: 768px) {
   .grand .top .links .search > input::-moz-placeholder {
     font-size: 12px;
+    color: gray;
   }
   .grand .top .links .search > input:-ms-input-placeholder {
     font-size: 12px;
+    color: gray;
   }
   .grand .top .links .search > input::placeholder {
     font-size: 12px;
+    color: gray;
   }
 }
 .grand .top .links .search > svg {

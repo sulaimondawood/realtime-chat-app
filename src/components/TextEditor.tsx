@@ -13,7 +13,7 @@ import { chatProvider } from "./ChatContext";
 // import { v4 as uuid } from "uuid";
 import { v4 as uuidv4 } from "uuid";
 import { authProvider } from "./AuthProvider";
-import { searchContext } from "../../pages/chatMe";
+import { searchContext } from "../../pages/chat-me";
 const TextEditor = () => {
   const [msg, setMsg] = useState("");
   const { state } = useContext(chatProvider);

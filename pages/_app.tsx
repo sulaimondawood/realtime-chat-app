@@ -6,7 +6,7 @@ import AuthProvider, { authProvider } from "../src/components/AuthProvider";
 import { auth } from "../firebase/config";
 import Home from "./login";
 import ChatProvider from "../src/components/ChatContext";
-import { searchContext } from "./chatMe";
+import { searchContext } from "./chat-me";
 function MyApp({ Component, pageProps }: AppProps) {
   const user2: any = useContext(searchContext);
   const { authContext } = useContext(authProvider);

@@ -3,7 +3,7 @@ import classes from "../../styles/components/aside.module.css";
 import Search from "../../src/assets/search.svg";
 import RecentMessage from "./RecentMessage";
 import Image from "../../src/assets/photo.jpeg";
-import { searchContext } from "../../pages/chatMe";
+import { searchContext } from "../../pages/chat-me";
 import { authProvider } from "./AuthProvider";
 import {
   doc,
