@@ -70,9 +70,10 @@
           // box-shadow: 0 4px 5px #00000020;
 
           &::placeholder {
-            font-size: 16px;
+            font-size: 14px;
             text-indent: 30px;
-            color: var(--prm-d-blue);
+
+            color: gray;
 
             @media screen and (max-width: 768px) {
               font-size: 12px;
@@ -85,8 +86,12 @@
           position: absolute;
           left: 5px;
           top: 50%;
-          width: 13px;
+          width: 18px;
           transform: translateY(-50%);
+
+          @media screen and (max-width: 768px) {
+            width: 13px;
+          }
         }
       }
       > div {

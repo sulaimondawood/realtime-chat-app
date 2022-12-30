@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  overflow-y: scroll;
+
   background-color: var(--white-p);
   background-color: rgb(233, 237, 241);
   /* background-image: linear-gradient(90deg, #0b22f6, #2b2656); */
