@@ -48,10 +48,10 @@ const ChatMe = () => {
     }
   };
   const handleKey = (e: any) => {
-    if (e.code === "Enter") {
-      searchUser();
-      console.log(user);
-    }
+    // if (e.code === "Enter") {
+    searchUser();
+    console.log(user);
+    // }
   };
 
   const handleLogout = () => {
@@ -84,7 +84,7 @@ const ChatMe = () => {
                 onKeyUp={handleKey}
               />
 
-              <CiSearch />
+              <CiSearch className={classes.seIcons} />
             </div>
             <div>
               <Link href="/">HOME</Link>

@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       console.log(res.user);
-      router.push("/chatMe");
+      router.push("/chat-me");
     } catch (error: any) {
       setError(true);
       const errorCode = error.code;
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
       });
 
       await setDoc(doc(db, "userChats", res.user.uid), {});
-      router.push("/chatMe");
+      router.push("/chat-me");
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;

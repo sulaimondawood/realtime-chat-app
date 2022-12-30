@@ -28,7 +28,7 @@ const Message = () => {
 
   const refLatestMsg = useRef(null);
   useEffect(() => {
-    // refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
+    refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
   }, [chatMsgs as any]);
 
   return (

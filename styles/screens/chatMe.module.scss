@@ -81,15 +81,12 @@
           }
         }
 
-        > svg {
+        .seIcons {
           position: absolute;
-          left: 13px;
+          left: 5px;
           top: 50%;
-          width: 19px;
+          width: 13px;
           transform: translateY(-50%);
-          path {
-            stroke: var(--prm-d-blue);
-          }
         }
       }
       > div {

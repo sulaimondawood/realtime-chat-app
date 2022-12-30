@@ -11,7 +11,7 @@
 @media screen and (max-width: 768px) {
   .sign_in_wrp {
     width: 300px;
-    margin: 50px auto;
+    margin: 20px auto;
   }
 }
 .sign_in_wrp .error_m {

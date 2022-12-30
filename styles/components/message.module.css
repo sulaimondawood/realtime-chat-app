@@ -23,6 +23,7 @@
   .message .btm {
     padding: 0 0.5rem;
     border-radius: 10px;
+    height: calc(100vh - 100px);
   }
 }
 .message .btm::-webkit-scrollbar {
@@ -34,7 +35,7 @@
 }
 @media screen and (max-width: 768px) {
   .message .btm .msgs_wrp {
-    height: calc(100vh - 256px);
+    height: calc(100vh - 166px);
   }
 }
 .message .btm .msgs_wrp::-webkit-scrollbar {

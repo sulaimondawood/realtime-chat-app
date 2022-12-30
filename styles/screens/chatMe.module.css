@@ -99,15 +99,12 @@
     color: gray;
   }
 }
-.grand .top .links .search > svg {
+.grand .top .links .search .seIcons {
   position: absolute;
-  left: 13px;
+  left: 5px;
   top: 50%;
-  width: 19px;
+  width: 13px;
   transform: translateY(-50%);
-}
-.grand .top .links .search > svg path {
-  stroke: var(--prm-d-blue);
 }
 .grand .top .links > div {
   display: flex;
