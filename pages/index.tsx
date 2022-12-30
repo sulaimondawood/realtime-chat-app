@@ -26,6 +26,8 @@ const Home: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fileData, setFileData] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const refs = useRef();
 
   const router = useRouter();
@@ -63,8 +65,12 @@ const Home: NextPage = () => {
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
-
-      console.log(errorCode, errorMessage);
+      setError(true);
+      setErrorMsg(errorCode);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+      console.log(errorCode);
     }
   };
 
@@ -85,8 +91,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={classes.sign_in_wrp}>
+        {/* style={{ textAlign: "center" }} */}
         {/* <h3 className={classes.top}> RealTime Chat App</h3> */}
         <h2 className={classes.title}>Create Account</h2>
+        {error && <p className={classes.error_m}>{errorMsg}</p>}
         <form className={classes.form} onSubmit={handleSubmit}>
           <input
             required

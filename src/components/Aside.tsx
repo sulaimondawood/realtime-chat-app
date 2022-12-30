@@ -16,6 +16,7 @@ import {
 // import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { chatProvider } from "./ChatContext";
+import { RxAvatar } from "react-icons/Rx";
 const Aside = () => {
   // state
   const [userSnap, setUserSnap] = useState("");
@@ -23,8 +24,17 @@ const Aside = () => {
   // state
   const user2: any = useContext(searchContext);
   // useContext for search input
-  const { isLoadingUser, setIsLoadingUser, error, setUserName }: any =
-    useContext(searchContext);
+  const {
+    isLoadingUser,
+    isLoadedUser,
+    setIsLoadedUser,
+    setIsLoadingUser,
+    error,
+    setUserName,
+  }: any = useContext(searchContext);
+
+  console.log(error);
+
   // useContext for current User
   const { authContext } = useContext(authProvider);
   // useContext for current User
@@ -39,7 +49,7 @@ const Aside = () => {
   // let combinedID: string;
   const handleSearchedUser = async () => {
     setUserName("");
-    setIsLoadingUser(false);
+    setIsLoadedUser(false);
 
     const combinedID =
       authContext.uid > user2.user.uid
@@ -88,15 +98,27 @@ const Aside = () => {
 
   return (
     <section className={classes.aside}>
-      {isLoadingUser && (
+      {isLoadingUser && <p>Loadinng</p>}
+      {isLoadedUser && (
         <div className={classes.msg} onClick={handleSearchedUser}>
-          <img
-            className={classes.img}
-            src={user2?.user.photoURL}
-            referrerPolicy="no-referrer"
-            alt=""
-          />
-          <p className={classes.msg_name}>{user2?.user.displayName}</p>
+          {user2?.user.photoURL ? (
+            <img
+              className={classes.img}
+              src={user2?.user.photoURL}
+              referrerPolicy="no-referrer"
+              alt=""
+            />
+          ) : (
+            <div className="avatar">
+              <RxAvatar />
+            </div>
+          )}
+
+          <p className={classes.msg_name}>
+            {user2?.user.displayName
+              ? user2?.user.displayName
+              : "User Not Found"}
+          </p>
         </div>
       )}
       {error && <p>No user found!</p>}

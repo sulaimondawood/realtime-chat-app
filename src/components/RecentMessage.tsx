@@ -18,7 +18,7 @@ const RecentMessage = ({ displayName, photoURL, date, clickMe, msg }: any) => {
       )}
       <div className={classes.msg_contents}>
         <p className={classes.msg_name}>{displayName}</p>
-        <p className={classes.msg_msg}>{msg}</p>
+        <p className={classes.msg_msg}>{msg?.slice(0, 20)}...</p>
       </div>
     </div>
   );

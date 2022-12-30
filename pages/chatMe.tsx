@@ -23,6 +23,7 @@ const chatMe = () => {
   const [userName, setUserName] = useState("");
   const [user, setUser] = useState<any>({});
   const [isLoadingUser, setIsLoadingUser] = useState(false);
+  const [isLoadedUser, setIsLoadedUser] = useState(false);
   const [error, setError] = useState(false);
 
   const router = useRouter();
@@ -33,19 +34,17 @@ const chatMe = () => {
     try {
       setIsLoadingUser(true);
       const searchedUser = collection(db, "users");
-      const q = query(
-        searchedUser,
-        where("displayName", "array-contains", userName)
-      );
+      const q = query(searchedUser, where("displayName", "==", userName));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setUser(doc.data() as any);
       });
+      setIsLoadedUser(true);
       setIsLoadingUser(false);
     } catch (error) {
       // setUser("");
       setIsLoadingUser(false);
-      // setError(true);
+      setError(true);
     }
   };
   const handleKey = (e: any) => {
@@ -62,7 +61,15 @@ const chatMe = () => {
 
   return (
     <searchContext.Provider
-      value={{ user, isLoadingUser, setIsLoadingUser, error, setUserName }}
+      value={{
+        user,
+        isLoadingUser,
+        setIsLoadingUser,
+        setIsLoadedUser,
+        isLoadedUser,
+        error,
+        setUserName,
+      }}
     >
       <main className={classes.grand}>
         <div className={classes.top}>

@@ -1,19 +1,28 @@
 .aside {
   height: calc(100vh - 186px);
   overflow-y: scroll;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     display: none;
   }
+
   .msg {
     display: flex;
     align-items: center;
     gap: 20px;
     padding-bottom: 10px;
-    border-bottom: 3px solid var(--deep-blue);
+
+    @media screen and(max-width:768px) {
+      gap: 10px;
+      padding-bottom: 0;
+    }
+
     cursor: pointer;
+
     &:hover {
-      background-color: rgb(228, 217, 217);
+      border-bottom: 2px solid var(--blue);
+      box-shadow: 2px 5px 2px #00000010;
     }
 
     .img {
@@ -22,12 +31,22 @@
       object-fit: cover;
       object-position: center;
       border-radius: 50%;
+
+      @media screen and(max-width:768px) {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     > .msg_name {
       font-size: 18px;
       text-transform: capitalize;
       color: var(--prm-d-blue);
+
+      @media screen and(max-width:768px) {
+        font-size: 12px;
+        line-height: 1.2;
+      }
     }
   }
   // .search {
@@ -70,23 +89,27 @@
     // margin-top: 40px;
     border-radius: 30px;
 
-    .top {
-      h2 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-top: 50px;
-        color: var(--black);
-        text-transform: uppercase;
+    @media screen and(max-width:768px) {
+      border-radius: 10px;
+    }
 
-        span {
-          font-size: 14px;
-          background-color: rgb(252, 228, 232);
-          font-weight: 400;
-          border-radius: 30px;
-          color: palevioletred;
-          padding: 0.3em 0.7em;
-        }
-      }
+    .top {
+      // h2 {
+      //   font-size: 24px;
+      //   font-weight: 600;
+      //   margin-top: 50px;
+      //   color: var(--black);
+      //   text-transform: uppercase;
+
+      //   span {
+      //     font-size: 14px;
+      //     background-color: rgb(252, 228, 232);
+      //     font-weight: 400;
+      //     border-radius: 30px;
+      //     color: palevioletred;
+      //     padding: 0.3em 0.7em;
+      //   }
+      // }
 
       .recent {
         color: var(--deep-blue);
@@ -99,6 +122,10 @@
         flex-direction: column;
         gap: 10px;
         margin-top: 40px;
+
+        @media screen and(max-width:768px) {
+          margin-top: 20px;
+        }
       }
     }
   }

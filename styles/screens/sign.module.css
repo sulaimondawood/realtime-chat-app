@@ -8,15 +8,40 @@
   border-radius: 30px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.0274509804);
 }
+@media screen and (max-width: 768px) {
+  .sign_in_wrp {
+    width: 300px;
+    margin: 50px auto;
+  }
+}
+.sign_in_wrp .error_m {
+  color: white;
+  font-size: 12px;
+  padding: 0.3em;
+  border-radius: 20px;
+  text-align: center;
+  background-color: rgb(228, 93, 93);
+}
+@media screen and (max-width: 768px) {
+  .sign_in_wrp .error_m {
+    font-size: 8px;
+  }
+}
 .sign_in_wrp > .top {
   color: var(--blue-2);
   font-size: 24px;
   text-align: center;
 }
 .sign_in_wrp > .title {
-  margin-top: 40px;
-  font-size: 24px;
+  font-size: 28px;
+  padding-bottom: 16px;
+  text-align: center;
   color: var(--blue-2);
+}
+@media screen and (max-width: 768px) {
+  .sign_in_wrp > .title {
+    font-size: 20px;
+  }
 }
 .sign_in_wrp > .form {
   margin-top: 30px;
@@ -49,18 +74,34 @@
   font-size: 12px;
   margin-left: 20px;
 }
-.sign_in_wrp > div:last-child {
+.sign_in_wrp div:last-child {
   align-self: flex-end;
   justify-content: flex-end;
   margin-top: 20px;
 }
-.sign_in_wrp > div:last-child a {
+@media screen and (max-width: 768px) {
+  .sign_in_wrp div:last-child {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.sign_in_wrp div:last-child a {
   color: var(--blue);
 }
-.sign_in_wrp > div:last-child span {
+@media screen and (max-width: 768px) {
+  .sign_in_wrp div:last-child a {
+    font-size: 12px;
+  }
+}
+.sign_in_wrp div:last-child span {
   font-size: 14px;
   color: var(--blue-2);
   padding-right: 5px;
+}
+@media screen and (max-width: 768px) {
+  .sign_in_wrp div:last-child span {
+    font-size: 14px;
+  }
 }
 .sign_in_wrp .google {
   background-color: var(--blue-2);
@@ -76,6 +117,16 @@
   padding: 1em;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .sign_in_wrp button {
+    padding: 0.5em;
+  }
+}
 .sign_in_wrp button .google_icon {
   font-size: 30px;
+}
+@media screen and (max-width: 768px) {
+  .sign_in_wrp button .google_icon {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=sign.module.css.map */

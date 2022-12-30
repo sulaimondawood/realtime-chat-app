@@ -3,6 +3,13 @@
   gap: 10px;
   padding: 1.3rem 0.8rem;
   align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+@media screen and (max-width: 768px) {
+  .msg {
+    padding: 0.5rem 0.4rem;
+  }
 }
 .msg > .img {
   width: 60px;
@@ -12,6 +19,12 @@
   -o-object-position: center;
      object-position: center;
   border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
+  .msg > .img {
+    width: 30px;
+    height: 30px;
+  }
 }
 .msg > .msg_contents {
   display: flex;
@@ -24,30 +37,22 @@
   font-weight: 700;
   color: var(--prm-d-blue);
 }
+@media screen and (max-width: 768px) {
+  .msg > .msg_contents > .msg_name {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .msg > .msg_contents > .msg_name {
+    font-size: 9px;
+  }
+}
 .msg > .msg_contents > .msg_msg {
   font-size: 12px;
   color: var(--deep-blue);
 }
-.msg > .time_wrp {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.msg > .time_wrp .dates {
-  font-size: 12px;
-  color: var(--w-2);
-}
-.msg > .time_wrp .no {
-  background-color: var(--blue-3);
-  width: 8px;
-  border-radius: 50%;
-  height: 8px;
-}
-.msg > .time_wrp .nos {
-  background-color: rgb(245, 206, 173);
-  color: white;
-  padding: 0.1em 0.5em;
-  font-size: 12px;
-  border-radius: 50%;
-  align-self: flex-start;
+@media screen and (max-width: 768px) {
+  .msg > .msg_contents > .msg_msg {
+    font-size: 7px;
+  }
 }/*# sourceMappingURL=recentMsg.module.css.map */

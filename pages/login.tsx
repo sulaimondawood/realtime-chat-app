@@ -42,8 +42,12 @@ const Home: NextPage = () => {
       console.log(res.user);
       router.push("/chatMe");
     } catch (error: any) {
+      setError(true);
       const errorCode = error.code;
-      const errorMessage = error.message;
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+      setErrorMsg(errorCode);
     }
   };
 
@@ -65,7 +69,11 @@ const Home: NextPage = () => {
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      setErrorMsg(errorMessage);
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+      setErrorMsg(errorCode);
 
       const credential = GoogleAuthProvider.credentialFromError(error);
     }
@@ -86,6 +94,8 @@ const Home: NextPage = () => {
       <main className={classes.sign_in_wrp}>
         {/* <h3 className={classes.top}> RealTime Chat App</h3> */}
         <h2 className={classes.title}>Sign In</h2>
+        {error && <p className={classes.error_m}>{errorMsg}</p>}
+
         <form className={classes.form} onSubmit={handleSignInEmail}>
           <input
             required
@@ -109,12 +119,7 @@ const Home: NextPage = () => {
         <button onClick={handleGoogleSignIn}>
           <FcGoogle className={classes.google_icon} />
         </button>
-        {error && (
-          <p style={{ textAlign: "center", fontSize: "12px", color: "red" }}>
-            {/* Something went wrong */}
-            {errorMsg}
-          </p>
-        )}
+
         <div>
           <span>Does not have an account?</span>
           <Link href="/">Create an account</Link>

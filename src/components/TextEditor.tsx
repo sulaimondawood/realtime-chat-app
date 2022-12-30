@@ -22,6 +22,8 @@ const TextEditor = () => {
 
   const updateMsg = async (e: any) => {
     e.preventDefault();
+    if (!msg) return;
+
     await updateDoc(doc(db, "chats", state.userID), {
       messages: arrayUnion({
         id: uuidv4(),
