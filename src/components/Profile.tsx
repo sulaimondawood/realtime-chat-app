@@ -4,7 +4,7 @@ import classes from "../../styles/components/profile.module.css";
 import { authProvider } from "./AuthProvider";
 const Profile = () => {
   const { authContext } = useContext(authProvider);
-  console.log(authContext);
+  // console.log(authContext);
 
   return (
     <div className={classes.profile}>

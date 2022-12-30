@@ -50,7 +50,7 @@ const ChatMe = () => {
   const handleKey = (e: any) => {
     // if (e.code === "Enter") {
     searchUser();
-    console.log(user);
+    // console.log(user);
     // }
   };
 

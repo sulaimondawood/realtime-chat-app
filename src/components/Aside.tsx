@@ -33,7 +33,7 @@ const Aside = () => {
     setUserName,
   }: any = useContext(searchContext);
 
-  console.log(error);
+  // console.log(error);
 
   // useContext for current User
   const { authContext } = useContext(authProvider);
@@ -43,7 +43,7 @@ const Aside = () => {
 
   const handleSetUser = (user: {}) => {
     dispatch({ type: "SET_USER", payload: user });
-    console.log(state);
+    // console.log(state);
   };
 
   // let combinedID: string;
@@ -79,9 +79,9 @@ const Aside = () => {
         [combinedID + ".date"]: serverTimestamp(),
       });
 
-      console.log("Try Ctach");
+      // console.log("Try Ctach");
     } catch (error) {
-      console.log("errroorrrrr!!!!!!!");
+      // console.log("errroorrrrr!!!!!!!");
     }
   };
   useEffect(() => {

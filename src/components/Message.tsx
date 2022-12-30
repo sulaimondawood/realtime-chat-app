@@ -19,7 +19,7 @@ const Message = () => {
         console.log("Current data: ", doc.data());
         const chatsFrmDB = doc.data();
         doc.exists() && setChatMsgs(chatsFrmDB?.messages);
-        console.log(chatMsgs);
+        // console.log(chatMsgs);
       });
     };
 
@@ -66,7 +66,7 @@ const Message = () => {
               const dates = fireBaseTime.toDateString();
               const atTime = fireBaseTime.toLocaleTimeString();
               // console.log(dates);
-              console.log(atTime);
+              // console.log(atTime);
 
               return (
                 <div

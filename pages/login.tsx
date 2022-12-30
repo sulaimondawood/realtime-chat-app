@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
-      console.log(res.user);
+      // console.log(res.user);
       router.push("/chat-me");
     } catch (error: any) {
       setError(true);
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
     try {
       const res = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(res);
-      console.log(res);
+      // console.log(res);
       await setDoc(doc(db, "users", res.user.uid), {
         uid: res.user.uid,
         displayName: res.user.displayName,

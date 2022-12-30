@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     e.preventDefault();
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(res);
+      // console.log(res);
 
       const storageRef = ref(storage, email);
       const uploadTask = uploadBytesResumable(storageRef, fileData as any);
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
       );
       router.push("/login");
       await setDoc(doc(db, "userChats", res.user.uid), {});
-      console.log(fileData);
+      // console.log(fileData);
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
       setTimeout(() => {
         setError(false);
       }, 2000);
-      console.log(errorCode);
+      // console.log(errorCode);
     }
   };
 

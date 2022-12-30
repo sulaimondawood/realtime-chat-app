@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   // if (!authContext.uid) {
   //   return <Home />;
   // }
-  console.log(authContext);
 
   return (
     <AuthProvider>
