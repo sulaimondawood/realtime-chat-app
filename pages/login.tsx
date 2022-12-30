@@ -83,12 +83,17 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Sign up for account</title>
         <meta
           name="description"
-          content="react realtime application by dawood"
+          content="One to One real time chat application - Dawood Sulaimon"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="keywords"
+          content="CHAT, REALTIME CHAT, REACT, NEXTJS, JS, APP, CHATAPP"
+        />
+        <meta name="author" content="Dawood Sulaimon Adekunle" />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
       </Head>
 
       <main className={classes.sign_in_wrp}>
@@ -101,7 +106,7 @@ const Home: NextPage = () => {
             required
             type="text"
             placeholder="Enter your email  address"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.trim())}
             value={email}
           />
           <input
@@ -109,7 +114,7 @@ const Home: NextPage = () => {
             type="password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value.trim())}
           />
           <button className={classes.google} onClick={handleSignInEmail}>
             Submit
