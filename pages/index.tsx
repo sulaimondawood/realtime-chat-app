@@ -38,7 +38,7 @@ const Home: NextPage = () => {
       console.log(res);
 
       const storageRef = ref(storage, email);
-      const uploadTask = uploadBytesResumable(storageRef, fileData);
+      const uploadTask = uploadBytesResumable(storageRef, fileData as any);
 
       uploadTask.on(
         "state_changed",

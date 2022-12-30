@@ -18,7 +18,7 @@ import { FcCallTransfer } from "react-icons/Fc";
 
 export const searchContext = createContext({});
 
-const chatMe = () => {
+const ChatMe = () => {
   const { authContext } = useContext(authProvider);
   const [userName, setUserName] = useState("");
   const [user, setUser] = useState<any>({});
@@ -120,4 +120,4 @@ const chatMe = () => {
   );
 };
 
-export default chatMe;
+export default ChatMe;

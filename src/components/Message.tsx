@@ -28,8 +28,8 @@ const Message = () => {
 
   const refLatestMsg = useRef(null);
   useEffect(() => {
-    refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
-  }, [chatMsgs]);
+    // refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
+  }, [chatMsgs as any]);
 
   return (
     <section className={classes.message}>
@@ -51,7 +51,7 @@ const Message = () => {
       <div className={classes.btm}>
         {/* <p className={classes.date}>Augus 21</p> */}
         <div className={classes.msgs_wrp}>
-          {chatMsgs.map(
+          {chatMsgs?.map(
             (item: {
               date: any;
               id: string;
