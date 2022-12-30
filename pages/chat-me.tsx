@@ -14,7 +14,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import Link from "next/link";
 import { authProvider } from "../src/components/AuthProvider";
 import { useRouter } from "next/router";
-import { FcCallTransfer } from "react-icons/Fc";
+import { FcCallTransfer } from "react-icons/fc";
 
 export const searchContext = createContext({});
 
