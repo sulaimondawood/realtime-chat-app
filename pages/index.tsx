@@ -5,7 +5,7 @@ import classes from "../styles/screens/sign.module.css";
 import Folder from "../src/assets/folder-open.svg";
 import Link from "next/link";
 
-import { BsFillImageFill } from "react-icons//Bs";
+import { BsFillImageFill } from "react-icons/bs";
 
 // firebase
 
