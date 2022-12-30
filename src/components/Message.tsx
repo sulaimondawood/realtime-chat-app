@@ -26,9 +26,9 @@ const Message = () => {
     state.userID && getMyChats();
   }, [state.userID]);
 
-  const refLatestMsg = useRef(null);
+  const refLatestMsg = useRef<null | HTMLDivElement>(null);
   useEffect(() => {
-    refLatestMsg.current?.scrollIntoView({ behaviour: "smooth" });
+    refLatestMsg.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatMsgs as any]);
 
   return (
