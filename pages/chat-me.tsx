@@ -30,6 +30,10 @@ const ChatMe = () => {
 
   // console.log(user);
 
+  if (!authContext) {
+    return router.push("/login") as any;
+  }
+
   const searchUser = async () => {
     try {
       setIsLoadingUser(true);
@@ -87,11 +91,11 @@ const ChatMe = () => {
               <CiSearch className={classes.seIcons} />
             </div>
             <div>
-              <Link href="/">HOME</Link>
-              <Link href="/">CHAT</Link>
-              <Link href="/">CONTACTS</Link>
-              <Link href="/">SETTINGS</Link>
-              <Link href="/">FAQS</Link>
+              {/* <Link href="/">HOME</Link> */}
+              <p>CHAT</p>
+              <p>CONTACTS</p>
+              <p>SETTINGS</p>
+              <p>FAQS</p>
             </div>
           </div>
 

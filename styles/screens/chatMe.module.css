@@ -120,12 +120,12 @@
     display: none;
   }
 }
-.grand .top .links > div a {
+.grand .top .links > div p {
   font-size: 14px;
   color: var(--prm-d-blue);
   text-decoration: none;
 }
-.grand .top .links > div a:hover {
+.grand .top .links > div p:hover {
   color: var(--prm-blue);
 }
 .grand .top > button {
@@ -146,9 +146,9 @@
   width: 50px;
   height: 50px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   border-radius: 50%;
 }
 @media screen and (max-width: 768px) {
@@ -172,4 +172,4 @@
   .grand .main {
     margin-top: 30px;
   }
-}/*# sourceMappingURL=chatMe.module.css.map */
+} /*# sourceMappingURL=chatMe.module.css.map */
