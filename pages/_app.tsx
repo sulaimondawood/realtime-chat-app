@@ -7,13 +7,10 @@ import { auth } from "../firebase/config";
 import Home from "./login";
 import ChatProvider from "../src/components/ChatContext";
 import { searchContext } from "./chat-me";
+import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }: AppProps) {
   const user2: any = useContext(searchContext);
   const { authContext } = useContext(authProvider);
-
-  // if (!authContext.uid) {
-  //   return <Home />;
-  // }
 
   return (
     <AuthProvider>

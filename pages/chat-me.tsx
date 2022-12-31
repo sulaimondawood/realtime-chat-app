@@ -30,10 +30,6 @@ const ChatMe = () => {
 
   // console.log(user);
 
-  if (!authContext) {
-    return router.push("/login") as any;
-  }
-
   const searchUser = async () => {
     try {
       setIsLoadingUser(true);
@@ -63,6 +59,9 @@ const ChatMe = () => {
     router.push("/");
   };
 
+  if (!authContext) {
+    router.push("/login");
+  }
   return (
     <searchContext.Provider
       value={{
