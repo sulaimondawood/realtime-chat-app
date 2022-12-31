@@ -94,7 +94,7 @@ const Aside = () => {
     };
 
     authContext.uid && snapLoads();
-  }, [authContext.uid]);
+  }, [authContext?.uid]);
 
   return (
     <section className={classes.aside}>
@@ -125,7 +125,7 @@ const Aside = () => {
       <div className={classes.btm}>
         <div className={classes.top}>
           <div className={classes.recent_msgs}>
-            {authContext.uid &&
+            {authContext?.uid &&
               Object?.entries(userSnap as any)
                 ?.sort((a: any, b: any) => b[1].date - a[1].date)
                 .map((item: any) => {
